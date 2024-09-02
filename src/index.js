@@ -14,7 +14,7 @@ console.log("Deepar version: " + deepar.version);
   
   // Initialize DeepAR.
   const deepAR = await deepar.initialize({
-    licenseKey: 'your_license_key_goes_here',
+    licenseKey: '6e12a079bdd30322595e15dd2f174a3ce1da98b47244df092d2b67d59a9ba5922b14e03864d3d6f5',
     canvas: canvas,
     rootPath: "./deepar-resources", // See webpack.config.js and package.json build script.
     additionalOptions: {
@@ -85,7 +85,7 @@ console.log("Deepar version: " + deepar.version);
     image = await processPhoto('./test_photos/camera1.jpg');
   }
   document.getElementById('load-photo-2').onclick = async function() {
-    image = await processPhoto('./test_photos/camera2.jpg');
+    image = await processPhoto('./test_photos/Anon0.jpg');
   }
   document.getElementById('apply-makeup-look-1').onclick = async function() {
     deepAR.switchEffect('./effects/look1');
