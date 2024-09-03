@@ -93,7 +93,7 @@ console.log("Deepar version: " + deepar.version);
     await processPhoto(image);
   }
   document.getElementById('apply-makeup-look-2').onclick = async function() {
-    deepAR.switchEffect('./effects/look2');
+    deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
     await delay(33);
     await processPhoto(image);
   }
