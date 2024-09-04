@@ -65,7 +65,7 @@ console.log("Deepar version: " + deepar.version);
   }
 
   // Initial image
-  let image = await getImage('./test_photos/camera1.jpg');
+  let image = await getImage('./test_photos/Anon2564.jpg');
 
   // Trigger the face tracking initialization by loading the effect.
   deepAR.switchEffect('./effects/look1').then(() => {
@@ -82,10 +82,10 @@ console.log("Deepar version: " + deepar.version);
   image = await processPhoto(image);
 
   document.getElementById('load-one-image').onclick = async function() {
-    image = await processPhoto('./test_photos/camera1.jpg');
+    image = await processPhoto('./test_photos/Anon2564.jpg');
   }
   document.getElementById('run-10-images').onclick = async function() {
-    image = await processPhoto('./test_photos/Anon0.jpg');
+    image = await processPhoto('./test_photos/Anon2564.jpg');
   }
 
 
@@ -100,7 +100,7 @@ console.log("Deepar version: " + deepar.version);
   //   deepAR.processImage(image);
   // }
 
-  
+
   document.getElementById('apply-makeup-look').onclick = async function() {
     deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
     await delay(33);
