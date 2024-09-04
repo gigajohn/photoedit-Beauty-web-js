@@ -81,18 +81,27 @@ console.log("Deepar version: " + deepar.version);
   // Load the inital photo.
   image = await processPhoto(image);
 
-  document.getElementById('load-photo-1').onclick = async function() {
+  document.getElementById('load-one-image').onclick = async function() {
     image = await processPhoto('./test_photos/camera1.jpg');
   }
-  document.getElementById('load-photo-2').onclick = async function() {
+  document.getElementById('run-10-images').onclick = async function() {
     image = await processPhoto('./test_photos/Anon0.jpg');
   }
-  document.getElementById('apply-makeup-look-1').onclick = async function() {
-    deepAR.switchEffect('./effects/look1');
-    await delay(33);
-    await processPhoto(image);
-  }
-  document.getElementById('apply-makeup-look-2').onclick = async function() {
+
+
+  // document.getElementById('reset').onclick = async function() {
+  //   //how to switch effect
+  //   // deepAR.switchEffect('./effects/look1');
+  //   // await delay(33);
+  //   // await processPhoto(image);
+
+  //   //TODO: reset enviorment
+  //   deepAR.clearEffect();
+  //   deepAR.processImage(image);
+  // }
+
+  
+  document.getElementById('apply-makeup-look').onclick = async function() {
     deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
     await delay(33);
     await processPhoto(image);
