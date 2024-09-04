@@ -106,6 +106,15 @@ console.log("Deepar version: " + deepar.version);
     await delay(33);
     await processPhoto(image);
   }
+
+  document.getElementById('apply-makeup-look-extreme').onclick = async function() {
+    deepAR.switchEffect('./effects/makupDeepAR');
+    await delay(33);
+    await processPhoto(image);
+    await processPhoto(image);
+    await processPhoto(image);
+  }
+
   document.getElementById('remove-makeup-filter').onclick = function() {
     deepAR.clearEffect();
     deepAR.processImage(image);
