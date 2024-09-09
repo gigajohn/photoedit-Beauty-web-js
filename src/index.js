@@ -86,6 +86,27 @@ console.log("Deepar version: " + deepar.version);
   }
   document.getElementById('run-10-images').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
+    await delay(33);
+
+    const imageFolder = '/home/jlathrop/Documents/photoedit-Beauty-web-js/public/test_photos/';
+    const imageFiles = ['Anon2564.jpg', 'Anon2630.jpg', 'Anon2642.jpg']; // Add more image file names as needed
+
+    for (const file of imageFiles) {
+      image = await processPhoto(imageFolder + file);
+      await delay(33);
+      // Add your code here to process the image
+      deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
+      await delay(33);
+      await processPhoto(image);
+      
+      const screenshot = await deepAR.takeScreenshot();
+      const a = document.createElement('a');
+      a.href = screenshot;
+      a.download = 'photo.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
   }
 
 
