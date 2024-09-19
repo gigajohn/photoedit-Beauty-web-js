@@ -99,19 +99,42 @@ console.log("Deepar version: " + deepar.version);
   // Load the inital photo.
   image = await processPhoto(image);
 
-<<<<<<< Updated upstream
+
   document.getElementById('load-one-image').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
   }
   document.getElementById('run-10-images').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
-=======
+
   document.getElementById('load-photo-1').onclick = async function() {
     image = await processPhoto('./test_photos/camera2.jpg');
   }
   document.getElementById('load-photo-2').onclick = async function() {
    //image = await processPhoto('./test_photos/Anon0.jpg');
->>>>>>> Stashed changes
+
+
+    await delay(33);
+
+    const imageFolder = '/home/jlathrop/Documents/photoedit-Beauty-web-js/public/test_photos/';
+    const imageFiles = ['Anon2564.jpg', 'Anon2630.jpg', 'Anon2642.jpg']; // Add more image file names as needed
+
+    for (const file of imageFiles) {
+      image = await processPhoto(imageFolder + file);
+      await delay(33);
+      // Add your code here to process the image
+      deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
+      await delay(33);
+      await processPhoto(image);
+      
+      const screenshot = await deepAR.takeScreenshot();
+      const a = document.createElement('a');
+      a.href = screenshot;
+      a.download = 'photo.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
   }
 
 
@@ -155,4 +178,4 @@ console.log("Deepar version: " + deepar.version);
     a.remove();
   }
   
-})();
+}})();
