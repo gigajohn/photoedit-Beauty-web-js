@@ -64,23 +64,6 @@ console.log("Deepar version: " + deepar.version);
     return image;
   }
 
-  async function processDirectory(dir) {
-    //check if dir is a directory
-    let files = fs.readdirSync(dir);
-    for (let file of files) {
-      let path = dir + '/' + file;
-      //check if image
-      if (path.endsWith('.jpg') || path.endsWith('.png')) {
-        let image = await getImage(path);
-        image = await processPhoto(image);
-
-        //apply filters and process 
-        deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
-        await delay(33);
-        await processPhoto(image);
-      }
-    }
-  }
 
   // Initial image
   let image = await getImage('./test_photos/Anon2564.jpg');
@@ -103,39 +86,39 @@ console.log("Deepar version: " + deepar.version);
   document.getElementById('load-one-image').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
   }
+  // document.getElementById('load-photo-1').onclick = async function() {
+  //   image = await processPhoto('./test_photos/camera2.jpg');
+  // }
   document.getElementById('run-10-images').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
-
-  document.getElementById('load-photo-1').onclick = async function() {
-    image = await processPhoto('./test_photos/camera2.jpg');
   }
-  document.getElementById('load-photo-2').onclick = async function() {
-   //image = await processPhoto('./test_photos/Anon0.jpg');
+  // document.getElementById('load-photo-2').onclick = async function() {
+  //  //image = await processPhoto('./test_photos/Anon0.jpg');
 
 
-    await delay(33);
+  //   await delay(33);
 
-    const imageFolder = '/home/jlathrop/Documents/photoedit-Beauty-web-js/public/test_photos/';
-    const imageFiles = ['Anon2564.jpg', 'Anon2630.jpg', 'Anon2642.jpg']; // Add more image file names as needed
+  //   const imageFolder = '/home/jlathrop/Documents/photoedit-Beauty-web-js/public/test_photos/';
+  //   const imageFiles = ['Anon2564.jpg', 'Anon2630.jpg', 'Anon2642.jpg']; // Add more image file names as needed
 
-    for (const file of imageFiles) {
-      image = await processPhoto(imageFolder + file);
-      await delay(33);
-      // Add your code here to process the image
-      deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
-      await delay(33);
-      await processPhoto(image);
+  //   for (const file of imageFiles) {
+  //     image = await processPhoto(imageFolder + file);
+  //     await delay(33);
+  //     // Add your code here to process the image
+  //     deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
+  //     await delay(33);
+  //     await processPhoto(image);
       
-      const screenshot = await deepAR.takeScreenshot();
-      const a = document.createElement('a');
-      a.href = screenshot;
-      a.download = 'photo.png';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
+  //     const screenshot = await deepAR.takeScreenshot();
+  //     const a = document.createElement('a');
+  //     a.href = screenshot;
+  //     a.download = 'photo.png';
+  //     document.body.appendChild(a);
+  //     a.click();
+  //     a.remove();
+  //   }
 
-  }
+  // }
 
 
   // document.getElementById('reset').onclick = async function() {
@@ -150,13 +133,15 @@ console.log("Deepar version: " + deepar.version);
   // }
 
 
-  document.getElementById('apply-makeup-look').onclick = async function() {
+  document.getElementById('apply-beauty-look').onclick = async function() {
     deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
     await delay(33);
     await processPhoto(image);
+    await processPhoto(image);
+    await processPhoto(image);
   }
 
-  document.getElementById('apply-makeup-look-extreme').onclick = async function() {
+  document.getElementById('apply-makeup-look').onclick = async function() {
     deepAR.switchEffect('./effects/makupDeepAR');
     await delay(33);
     await processPhoto(image);
@@ -178,4 +163,4 @@ console.log("Deepar version: " + deepar.version);
     a.remove();
   }
   
-}})();
+})();
