@@ -64,6 +64,24 @@ console.log("Deepar version: " + deepar.version);
     return image;
   }
 
+  async function processDirectory(dir) {
+    //check if dir is a directory
+    let files = fs.readdirSync(dir);
+    for (let file of files) {
+      let path = dir + '/' + file;
+      //check if image
+      if (path.endsWith('.jpg') || path.endsWith('.png')) {
+        let image = await getImage(path);
+        image = await processPhoto(image);
+
+        //apply filters and process 
+        deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
+        await delay(33);
+        await processPhoto(image);
+      }
+    }
+  }
+
   // Initial image
   let image = await getImage('./test_photos/Anon2564.jpg');
 
