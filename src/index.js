@@ -81,11 +81,19 @@ console.log("Deepar version: " + deepar.version);
   // Load the inital photo.
   image = await processPhoto(image);
 
+<<<<<<< Updated upstream
   document.getElementById('load-one-image').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
   }
   document.getElementById('run-10-images').onclick = async function() {
     image = await processPhoto('./test_photos/Anon2564.jpg');
+=======
+  document.getElementById('load-photo-1').onclick = async function() {
+    image = await processPhoto('./test_photos/camera2.jpg');
+  }
+  document.getElementById('load-photo-2').onclick = async function() {
+   //image = await processPhoto('./test_photos/Anon0.jpg');
+>>>>>>> Stashed changes
   }
 
 
