@@ -140,7 +140,7 @@ console.log("Deepar version: " + deepar.version);
 
 
   document.getElementById('apply-beauty-look').onclick = async function() {
-    deepAR.switchEffect('./effects/DeepAR_Beauty.deepar');
+    deepAR.switchEffect('./effects/Eyecolor.deepar');
     await delay(33);
     await processPhoto(image);
     await processPhoto(image);
@@ -148,7 +148,7 @@ console.log("Deepar version: " + deepar.version);
   }
 
   document.getElementById('apply-makeup-look').onclick = async function() {
-    deepAR.switchEffect('./effects/makupDeepAR');
+    deepAR.switchEffect('./effects/ExtreemMakeover.deepar');
     await delay(33);
     await processPhoto(image);
     await processPhoto(image);

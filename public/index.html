@@ -210,16 +210,16 @@
       document.getElementById('load-photo-2').onclick = function() {
         processPhoto('./test_photos/camera2.jpg');
       }
-      document.getElementById('apply-makeup-look-1').onclick = function() {
+      document.getElementById('apply-makeup-look').onclick = function() {
         // load filter         
-        deepAR.switchEffect(0, 'makeup', './effects/look1', function() {
+        deepAR.switchEffect(0, 'makeup', './effects/ExtreemMakeover.deepar', function() {
           // effect loaded, reprocess the image
           deepAR.processImage(image);
         });
       }
-      document.getElementById('apply-makeup-look-2').onclick = function() {
+      document.getElementById('apply-beauty-look').onclick = function() {
         // load filter         
-        deepAR.switchEffect(0, 'makeup', './effects/look2', function() {
+        deepAR.switchEffect(0, 'makeup', './effects/Eyecolor.deepar', function() {
           // effect loaded, reprocess the image
           deepAR.processImage(image);
         });
