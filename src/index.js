@@ -82,6 +82,21 @@ console.log("Deepar version: " + deepar.version);
   // Load the inital photo.
   image = await processPhoto(image);
 
+  document.getElementById('upload-directory').onchange = async function() {
+    //load files as a slide show
+    const files = this.files;
+    // Restart the slideshow when it reaches the end
+    if (files.length > 0) {
+      let i = 0;
+      while (true) {
+      const file = files[i];
+      image = await processPhoto(URL.createObjectURL(file));
+      await delay(1000); // Display each photo for 1 second
+      i = (i + 1) % files.length;
+      }
+    }
+  }
+
   //get image uploaded by user
   document.getElementById('upload-image').onchange = async function() {
     const file = this.files[0];
